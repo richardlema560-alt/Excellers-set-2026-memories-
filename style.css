@@ -1,7 +1,7 @@
-/* ==========================================
+/* =====================================
    EXCELLERS SET 2026 MEMORIES
-   Modern Memory Vault Theme
-========================================== */
+   Professional Theme
+===================================== */
 
 *{
     margin:0;
@@ -12,20 +12,25 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    color:#fff;
-    background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
-    url("images/background.jpg");
+    color:white;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.80)),
+    url("background.jpg");
+
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     background-attachment:fixed;
-    animation:zoomBackground 20s infinite alternate;
+
+    animation:zoomBackground 18s ease-in-out infinite alternate;
 }
 
 @keyframes zoomBackground{
     from{
         background-size:100%;
     }
+
     to{
         background-size:110%;
     }
@@ -37,9 +42,10 @@ nav{
     width:100%;
     display:flex;
     justify-content:center;
-    gap:30px;
+    align-items:center;
+    gap:25px;
     padding:20px;
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.60);
     backdrop-filter:blur(12px);
     position:sticky;
     top:0;
@@ -58,37 +64,35 @@ nav a:hover{
     color:#00c3ff;
 }
 
-/* Headings */
+/* Hero */
 
-h1{
-    font-size:55px;
+.hero{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    margin-top:70px;
-    text-shadow:0 0 20px #000;
+    padding:20px;
 }
 
-h2{
-    margin-top:50px;
-    margin-bottom:15px;
-    color:#00c3ff;
-    text-align:center;
-    font-size:32px;
+.hero h1{
+    font-size:65px;
+    text-shadow:0 0 20px black;
 }
 
-p{
-    text-align:center;
-    max-width:850px;
-    margin:15px auto;
-    line-height:1.8;
-    font-size:18px;
+.hero p{
+    font-size:24px;
+    max-width:700px;
+    margin:20px auto;
+    line-height:1.7;
 }
 
 /* Buttons */
 
 button{
-    display:block;
-    margin:25px auto;
-    padding:15px 40px;
+    padding:16px 40px;
+    margin:12px;
     border:none;
     border-radius:50px;
     background:#00c3ff;
@@ -108,57 +112,71 @@ button:hover{
 section{
     width:90%;
     max-width:1200px;
-    margin:60px auto;
-    padding:30px;
+    margin:50px auto;
+    padding:35px;
     background:rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
     border-radius:20px;
-    border:1px solid rgba(255,255,255,.15);
 }
 
-/* Images */
+h2{
+    text-align:center;
+    color:#00c3ff;
+    margin-bottom:20px;
+    font-size:36px;
+}
 
-img{
+p{
+    text-align:center;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* Cards */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    text-align:center;
+    padding:20px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(0,195,255,.5);
+}
+
+.card img{
     width:100%;
-    border-radius:18px;
+    border-radius:15px;
+    margin-bottom:15px;
     transition:.4s;
 }
 
-img:hover{
-    transform:scale(1.04);
-    box-shadow:0 0 25px rgba(0,195,255,.7);
+.card img:hover{
+    transform:scale(1.05);
 }
 
 /* Videos */
 
 video{
     width:100%;
-    border-radius:18px;
-    margin-top:15px;
-    transition:.4s;
-}
-
-video:hover{
-    transform:scale(1.02);
-}
-
-/* Gallery */
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    border-radius:15px;
 }
 
 /* Forms */
 
 form{
-    width:90%;
-    max-width:650px;
-    margin:40px auto;
-    background:rgba(255,255,255,.08);
-    padding:30px;
-    border-radius:20px;
+    max-width:700px;
+    margin:auto;
 }
 
 input,
@@ -169,7 +187,7 @@ textarea{
     margin:12px 0;
     border:none;
     border-radius:10px;
-    background:#1d1d1d;
+    background:#1f1f1f;
     color:white;
 }
 
@@ -179,28 +197,38 @@ select:focus{
     outline:2px solid #00c3ff;
 }
 
-/* Cards */
-
-.card{
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:20px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,195,255,.5);
+input[type=file]{
+    background:none;
 }
 
 /* Footer */
 
 footer{
+    margin-top:60px;
     text-align:center;
     padding:35px;
-    background:rgba(0,0,0,.7);
-    margin-top:60px;
+    background:rgba(0,0,0,.75);
     color:#bbb;
+}
+
+/* Fade Animation */
+
+.fade{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
 
 /* Scrollbar */
@@ -218,23 +246,6 @@ footer{
     border-radius:10px;
 }
 
-/* Fade Animation */
-
-.fade{
-    animation:fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
 /* Mobile */
 
 @media(max-width:768px){
@@ -244,22 +255,16 @@ nav{
     gap:15px;
 }
 
-h1{
-    font-size:36px;
-    padding:0 15px;
+.hero h1{
+    font-size:42px;
 }
 
-h2{
-    font-size:26px;
-}
-
-p{
-    font-size:16px;
-    padding:0 15px;
+.hero p{
+    font-size:18px;
 }
 
 button{
-    width:85%;
+    width:90%;
 }
 
 section{
